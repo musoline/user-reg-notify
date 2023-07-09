@@ -20,11 +20,8 @@ use Inertia\Inertia;
 Route::get('/', [\App\Http\Controllers\Auth\RegisteredUserController::class,"Create"]);
 
 
-Route::get('/users',[\App\Http\Controllers\UsersController::class,"index"]);
+Route::get('/users',[\App\Http\Controllers\UsersController::class,"index"])->middleware(["auth","verified"])->name("users");
 
-//Route::get('/users', function () {
-//    return Inertia::render('Users');
-//})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 require __DIR__ . '/auth.php';
